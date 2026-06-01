@@ -87,11 +87,11 @@ jobs:
       with:
           repository: Gauravrai462/go_web_app_infra
           token: ${{ secrets.TOKEN }}
-          path: infra  
+          path: go_web_app_infra  
 
     - name: Update tag in Helm chart
       run: |
-        sed -i 's/tag: .*/tag: "${{github.run_id}}"/' infra/helm/go-web-app-chart/values.yaml
+        sed -i 's/tag: .*/tag: "${{github.run_id}}"/' go_web_app_infra/helm/go-web-app-chart/values.yaml
 
     - name: Commit and push changes
       run: |
