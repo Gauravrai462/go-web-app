@@ -99,4 +99,4 @@ jobs:
         git config --global user.name "raigaurav"
         git add .
         git commit -m "Update tag in Helm chart"
-        git push
+        git push origin main
