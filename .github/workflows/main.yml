@@ -5,14 +5,18 @@ name: CI/CD
 
 # Exclude the workflow to run on changes to the helm chart
 on:
-  push:
-    branches:
-      - main
-    paths-ignore:
-      - 'helm/**'
-      - 'k8s/**'
-      - 'README.md'
-  workflow_dispatch:
+  #push:
+    #branches:
+      #- main
+    #paths-ignore:
+      #- 'helm/**'
+      #- 'k8s/**'
+      #- 'README.md'
+   workflow_dispatch:
+    inputs:
+      image_tag:
+        description: Docker image tag
+        required: true
 jobs:
 
   build:
@@ -69,7 +73,7 @@ jobs:
         context: .
         file: ./Dockerfile
         push: true
-        tags: ${{ secrets.DOCKERHUB_USERNAME }}/go-web-app:${{github.run_id}}
+        tags: ${{ secrets.DOCKERHUB_USERNAME }}/go-web-app:${{github.run_number}}
 
   update-newtag-in-helm-chart:
     runs-on: ubuntu-latest
