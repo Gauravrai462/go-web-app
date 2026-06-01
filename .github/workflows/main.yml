@@ -13,10 +13,10 @@ on:
       #- 'k8s/**'
       #- 'README.md'
    workflow_dispatch:
-    inputs:
-      image_tag:
-        description: Docker image tag
-        required: true
+    #inputs:
+      #image_tag:
+        #description: Docker image tag
+        #required: true
 jobs:
 
   build:
