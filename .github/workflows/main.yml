@@ -81,6 +81,13 @@ jobs:
       uses: actions/checkout@v4
       with:
         token: ${{ secrets.TOKEN }}
+        
+    - name: Checkout Helm repo
+      uses: actions/checkout@v4
+      with:
+          repository: your-org/go-web-app-helm
+          token: ${{ secrets.TOKEN }}
+          path: helm-repo  
 
     - name: Update tag in Helm chart
       run: |
