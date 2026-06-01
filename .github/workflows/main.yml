@@ -1,7 +1,7 @@
 
 # CICD using GitHub actions
 
-name: CI/CD
+name: go-web-app
 
 # Exclude the workflow to run on changes to the helm chart
 on:
